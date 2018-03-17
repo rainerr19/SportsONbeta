@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SportsONbeta</string>
+    <string name="loginText">Celular o Correo Electronico</string>
+    <string name="passText">Contraseña</string>
+    <string name="us">Usuario</string>
+    <string name="passTem">12345678</string>
+    <string name="btn1">Iniciar</string>
+    <string name="btn2">Crear cuenta nueva</string>
+    <string name="space"> ------------ O ------------ </string>
+    <string name="reg">Registro</string>
+</resources>
