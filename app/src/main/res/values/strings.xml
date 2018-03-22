@@ -8,5 +8,8 @@
     <string name="btn2">Create New Account</string>
     <string name="space"> ------------ Or ------------ </string>
     <string name="reg">Register</string>
+    <string name="name">Full name and last name</string>
+    <string name="email">Email</string>
+    <string name="cel">Cell phone</string>
 </resources>
 
