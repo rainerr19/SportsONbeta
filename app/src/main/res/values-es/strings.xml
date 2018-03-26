@@ -11,4 +11,9 @@
     <string name="name">Nombre completo y apellido</string>
     <string name="email">correo electronico</string>
     <string name="cel">Telefono celular</string>
+    <string name="Age">Edad</string>
+    <string name="Sex">Sexo</string>
+    <string name="Wo">Mujer</string>
+    <string name="Ma">Hombre</string>
+    <string name="nex">Siguiente</string>
 </resources>

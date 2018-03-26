@@ -34,7 +34,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <Space
             android:layout_width="match_parent"
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/editText2" />
+            android:id="@+id/nmail" />
         <Space
             android:layout_width="match_parent"
             android:layout_height="25dp" />
@@ -97,10 +97,78 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/editText3" />
+            android:id="@+id/Cel"
+            android:maxLength="10" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="25dp" />
+
+        <TextView
+            android:text="@string/Age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:fontFamily="serif"
+            android:textColor="@android:color/black" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/AgeIn"
+            android:maxLength="2" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <TextView
+            android:text="@string/Sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp"
+            android:fontFamily="serif"
+            android:textAlignment="center"
+            android:textColor="@android:color/black" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:text="@string/Wo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton3"
+                android:checked="false"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColorLink="@color/colorAccent" />
+
+            <RadioButton
+                android:text="@string/Ma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton"
+                android:layout_weight="1"
+                android:textSize="18sp" />
+        </RadioGroup>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <Button
+            android:text="@string/nex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_next" />
+
     </LinearLayout>
 </LinearLayout>
 </ScrollView>

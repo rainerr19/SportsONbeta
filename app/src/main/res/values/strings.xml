@@ -11,5 +11,10 @@
     <string name="name">Full name and last name</string>
     <string name="email">Email</string>
     <string name="cel">Cell phone</string>
+    <string name="Age">Age</string>
+    <string name="Sex">Sex</string>
+    <string name="Wo">Woman</string>
+    <string name="Ma">Man</string>
+    <string name="nex">Next</string>
 </resources>
 
