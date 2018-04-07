@@ -1,5 +1,6 @@
 package com.example.sportson.sportsonbeta;
 
+import android.content.Intent;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,32 +30,56 @@ public class register extends AppCompatActivity {
                 EditText nmail = (EditText) findViewById(R.id.nmail);
                 EditText Cel = (EditText) findViewById(R.id.Cel);
                 EditText AgeIn = (EditText)findViewById(R.id.AgeIn);
+                EditText npass = (EditText) findViewById(R.id.npass);
+                EditText cpass = (EditText) findViewById(R.id.cpass);
 
-                String Name = NameEdit.getText().toString();
-                if (Name.matches("")) {
+                String name = NameEdit.getText().toString();
+                if (name.matches("")) {
                     Toast.makeText(getApplicationContext(), "You did not enter a username", Toast.LENGTH_SHORT).show();
                     NameEdit.requestFocus();// focus en el editText
                     return;
                 }
-                Name = nmail.getText().toString();
-                if (Name.matches("")) {
+                name = nmail.getText().toString();
+                if (name.matches("")) {
                     Toast.makeText(getApplicationContext(), "You did not enter a Email", Toast.LENGTH_SHORT).show();
                     nmail.requestFocus();
                     return;
                 }
-                Name = Cel.getText().toString();
-                if (Name.matches("")){
+                name = Cel.getText().toString();
+                if (name.matches("")){
                     Toast.makeText(getApplicationContext(),"You did not enter a Cell phone number",Toast.LENGTH_SHORT).show();
                     Cel.requestFocus();
                     return;
                 }
-                Name = AgeIn.getText().toString();
-                if (Name.matches("")){
+                name = AgeIn.getText().toString();
+                if (name.matches("")){
                     Toast.makeText(getApplicationContext(),"You did not enter a Age",Toast.LENGTH_SHORT).show();
                     AgeIn.requestFocus();
                     return;
                 }
+                name = npass.getText().toString();
+                if (name.matches("")){
+                    Toast.makeText(getApplicationContext(),"You did not enter new password",Toast.LENGTH_SHORT).show();
+                    npass.requestFocus();
+                    return;
+                }
+                name = cpass.getText().toString();
+                if (name.matches("")){
+                    Toast.makeText(getApplicationContext(),"You did not enter a password confirmation",Toast.LENGTH_SHORT).show();
+                    cpass.requestFocus();
+                    return;
+                }
+                // string1.equals(string2)--> string1 == string2
+                String name1 = npass.getText().toString();
+                if (name.equals(name1)) {
+                    Intent intent = new Intent(getApplicationContext(),confirmation.class);
+                    startActivity(intent);
+                }else{
 
+                    Toast.makeText(getApplicationContext(),"Password are not the same",Toast.LENGTH_SHORT).show();
+                    npass.requestFocus();
+                    return;
+                }
             }
         });
 

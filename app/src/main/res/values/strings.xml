@@ -16,5 +16,7 @@
     <string name="Wo">Woman</string>
     <string name="Ma">Man</string>
     <string name="nex">Next</string>
+    <string name="pass1">New password</string>
+    <string name="pass2">Confirmation password</string>
 </resources>
 
