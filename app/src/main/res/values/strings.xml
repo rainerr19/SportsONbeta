@@ -18,5 +18,12 @@
     <string name="nex">Next</string>
     <string name="pass1">New password</string>
     <string name="pass2">Confirmation password</string>
+    <string name="confir">Email Confirmation</string>
+    <string name="confButton">Confirm</string>
+    <string name="confirmTex">Insert the confirmation code form you Email address</string>
+    <string name="ToastSend"> Sending a confirmation code... </string>
+    <string name="EmailTex1"> WELCOME  to SportsOn </string>
+    <string name="EmailTex2">your confirmation code is:  </string>
+
 </resources>
 

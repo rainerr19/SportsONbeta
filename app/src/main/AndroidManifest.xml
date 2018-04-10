@@ -20,7 +20,8 @@
         <activity
             android:name=".register"
             android:parentActivityName=".Intro" />
-        <activity android:name=".confirmation"></activity>
+        <activity android:name=".confirmation"
+            android:parentActivityName=".register"></activity>
     </application>
 
 </manifest>

@@ -18,4 +18,11 @@
     <string name="nex">Siguiente</string>
     <string name="pass1">nueva contraseña</string>
     <string name="pass2">confirmar contraseña</string>
+    <string name="confir">confirmacion de correo</string>
+    <string name="confButton">Confirmar</string>
+    <string name="confirmTex">Ingrese el codigo de confirmacion de su correo electronico</string>
+    <string name="ToastSend"> Enviando codigo de confirmacion... </string>
+    <string name="EmailTex1"> BIENVENIDO A SportsOn </string>
+    <string name="EmailTex2">Su codigo de confirmacion es:  </string>
+
 </resources>
