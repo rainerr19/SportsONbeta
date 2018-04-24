@@ -7,10 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 /**
  * Created by Rainer on 20/04/2018.
  */
-
 public class LoginRequest extends StringRequest {
     private static final String LOGIN_REQUEST_URL="http://192.168.1.6/SportsOnEdit/login.php";
     private Map<String,String> params;
