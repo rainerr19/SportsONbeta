@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
 
 public class register extends AppCompatActivity  {
     Button btn_next;
-
+    ProgressBar carga = (ProgressBar) findViewById(R.id.progresRegister);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +42,8 @@ public class register extends AppCompatActivity  {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_next.setVisibility(btn_next.GONE);
-
+                //btn_next.setVisibility(btn_next.GONE);
+                carga.setVisibility(carga.VISIBLE);
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
                 //si el editText esta vacio
@@ -55,37 +55,41 @@ public class register extends AppCompatActivity  {
                 EditText cpass = (EditText) findViewById(R.id.cpass);
                 RadioButton woma = (RadioButton) findViewById(R.id.woman);
                 RadioButton man = (RadioButton) findViewById(R.id.man);
+
                 String name = NameEdit.getText().toString();
                 String sexo;
                 if (name.matches("")) {
                     Toast.makeText(getApplicationContext(), "You did not enter a username", Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
                     NameEdit.requestFocus();// focus en el editText
-                    btn_next.setVisibility(btn_next.VISIBLE);
-
                     return;
                 }
                 name = nmail.getText().toString();
                 if (name.matches("")) {
                     Toast.makeText(getApplicationContext(), "You did not enter a Email", Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
                     nmail.requestFocus();
-                    btn_next.setVisibility(btn_next.VISIBLE);
-
+                    //btn_next.setVisibility(btn_next.VISIBLE);
                     return;
+                }else {if(name.indexOf("@")<0){
+                    Toast.makeText(getApplicationContext(), "You did not enter a real Email", Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
+                    nmail.requestFocus();
+                    return;
+                    }
                 }
                 name = Cel.getText().toString();
                 if (name.matches("")){
                     Toast.makeText(getApplicationContext(),"You did not enter a Cell phone number",Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
                     Cel.requestFocus();
-                    btn_next.setVisibility(btn_next.VISIBLE);
-
                     return;
                 }
                 name = AgeIn.getText().toString();
                 if (name.matches("")){
                     Toast.makeText(getApplicationContext(),"You did not enter a Age",Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
                     AgeIn.requestFocus();
-                    btn_next.setVisibility(btn_next.VISIBLE);
-
                     return;
                 }
                 if (man.isChecked()) {
@@ -95,7 +99,7 @@ public class register extends AppCompatActivity  {
                         sexo = "0";
                     }else{
                         Toast.makeText(getApplicationContext(),"You did select sex",Toast.LENGTH_SHORT).show();
-                        btn_next.setVisibility(btn_next.VISIBLE);
+                        carga.setVisibility(carga.GONE);
 
                         return;
                     }
@@ -104,16 +108,18 @@ public class register extends AppCompatActivity  {
                 name = npass.getText().toString();
                 if (name.matches("")){
                     Toast.makeText(getApplicationContext(),"You did not enter new password",Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
                     npass.requestFocus();
-                    btn_next.setVisibility(btn_next.VISIBLE);
+                    //btn_next.setVisibility(btn_next.VISIBLE);
 
                     return;
                 }
                 name = cpass.getText().toString();
                 if (name.matches("")){
                     Toast.makeText(getApplicationContext(),"You did not enter a password confirmation",Toast.LENGTH_SHORT).show();
+                    carga.setVisibility(carga.GONE);
                     cpass.requestFocus();
-                    btn_next.setVisibility(btn_next.VISIBLE);
+                    //btn_next.setVisibility(btn_next.VISIBLE);
 
                     return;
                 }
@@ -124,6 +130,7 @@ public class register extends AppCompatActivity  {
                         + getString(R.string.EmailTex2)+ " "+ cod;
 
                 if (name.equals(name1)) {
+
                     //Toast.makeText(getApplicationContext(),"Sending a confirmation code...",Toast.LENGTH_SHORT).show();
 
                     Properties properties = new Properties();
@@ -151,9 +158,10 @@ public class register extends AppCompatActivity  {
 
                     }catch (Exception e){
                         e.printStackTrace();
+                        carga.setVisibility(carga.GONE);
                         return;
                     }
-                    //carga.hide();
+
                     Intent intent = new Intent(getApplicationContext(),confirmation.class);
                     String mData[] = {NameEdit.getText().toString(),Cel.getText().toString(),
                             AgeIn.getText().toString(),npass.getText().toString(),nmail.getText().toString(),cod,sexo};
@@ -161,11 +169,9 @@ public class register extends AppCompatActivity  {
                     intent.putExtra("mdata",mData);
                     startActivity(intent);
                 }else{
-
                     Toast.makeText(getApplicationContext(),"Password are not the same",Toast.LENGTH_SHORT).show();
                     npass.requestFocus();
-                    btn_next.setVisibility(btn_next.VISIBLE);
-
+                    //btn_next.setVisibility(btn_next.VISIBLE);
                     return;
                 }
             }

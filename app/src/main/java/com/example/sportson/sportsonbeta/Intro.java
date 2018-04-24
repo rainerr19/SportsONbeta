@@ -1,5 +1,6 @@
 package com.example.sportson.sportsonbeta;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,33 @@ import org.json.JSONObject;
 public class Intro extends AppCompatActivity {
     Button bt_reg;
     Button btn_in;
+    boolean salir = false;
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        if(salir){
+            Intent intentOut = new Intent(Intent.ACTION_MAIN);//tart as a main entry point, does not expect to receive data.
+            //ACTION_MAIN with category CATEGORY_HOME -- Launch the home screen.
+            intentOut.addCategory(Intent.CATEGORY_HOME);//is the first activity that is displayed when the device boots
+            intentOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            /**If set, and the activity being launched is already running in the current task,
+             then instead of launching a new instance of that activity,
+             all of the other activities on top of it will be closed and
+             this Intent will be delivered to the (now on top) old activity as a new Intent.
+            * */
+            startActivity(intentOut);
+            finish();//termina activity actual
+            System.exit(0);//sale del sistema
+        }
+        Toast.makeText(getApplicationContext(),"Press again to exit.",Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                salir = false;
+            }
+        },3000);
+        salir = true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +97,7 @@ public class Intro extends AppCompatActivity {
                                 String mData[] = {name,eda,String.valueOf(sex),pass,cel,email,String.valueOf(idUser)};
                                 intent2.putExtra("userdata",mData);
                                 startActivity(intent2);
+                                finish();
                             }else {
                                 Toast.makeText(getApplicationContext(), "Error:Password o usuario incorrecta", Toast.LENGTH_SHORT).show();
                             //AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
@@ -80,8 +109,9 @@ public class Intro extends AppCompatActivity {
                     }
                 };
                 LoginRequest loginRequest = new LoginRequest(mail_cel,pass,no_mail(mail_cel),responseListener);
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                queue.add(loginRequest);
+                //RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                //queue.add(loginRequest);
+                SingletonVolley.getInstanceVolley(getApplicationContext()).addToRequestQueue(loginRequest);
             }
         });
 

@@ -208,6 +208,13 @@
             android:layout_width="match_parent"
             android:layout_height="25dp" />
 
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:id="@+id/progresRegister"
+            android:layout_height="70dp"
+            android:visibility="gone" />
+
         <Button
             android:text="@string/nex"
             android:layout_width="match_parent"

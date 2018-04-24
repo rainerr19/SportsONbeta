@@ -58,8 +58,8 @@ public class confirmation extends AppCompatActivity {
                             if(success){
                                 Toast.makeText(getApplicationContext(), "Code confirm!! and register", Toast.LENGTH_SHORT).show();
                                 Intent intent2 = new Intent(getApplicationContext(),Intro.class);
-
                                 startActivity(intent2);
+                                finish();
                             }else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                                 builder.setMessage("Error en registro").setNegativeButton("Retry",null).create().show();
@@ -75,10 +75,9 @@ public class confirmation extends AppCompatActivity {
                     }
                 };
                 registerRequest registro = new registerRequest(name,cel,age,pass,mail,sex,ResponListener);
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                queue.add(registro);
-
-
+                //RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                //queue.add(registro);
+                    SingletonVolley.getInstanceVolley(getApplicationContext()).addToRequestQueue(registro);
                 }else{
                     Toast.makeText(getApplicationContext(), "code are no the same", Toast.LENGTH_SHORT).show();
                 }
