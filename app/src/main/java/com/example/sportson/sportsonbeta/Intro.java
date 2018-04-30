@@ -93,7 +93,7 @@ public class Intro extends AppCompatActivity {
                                 String cel = jsonResponse.getString("cel");
                                 String email = jsonResponse.getString("mail");
                                 int idUser = jsonResponse.getInt("id_user");
-                                Intent intent2 = new Intent(getApplicationContext(),perfilActivity.class);
+                                Intent intent2 = new Intent(getApplicationContext(),sesion_Activity.class);
                                 String mData[] = {name,eda,String.valueOf(sex),pass,cel,email,String.valueOf(idUser)};
                                 intent2.putExtra("userdata",mData);
                                 startActivity(intent2);
